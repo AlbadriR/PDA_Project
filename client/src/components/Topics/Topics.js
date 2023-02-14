@@ -21,7 +21,7 @@ const Topics = () => {
   return (
     <div className={classes.Topic}>
       {topics.map((topic) => (
-        <TopicCard topic={topic}></TopicCard>
+        <TopicCard key={topic._id} topic={topic}></TopicCard>
       ))}
     </div>
   );

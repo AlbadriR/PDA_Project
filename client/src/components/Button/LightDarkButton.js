@@ -5,18 +5,20 @@ const LightDarkButton = () => {
   const dark = colorScheme === "dark";
 
   return (
-    <ActionIcon
-      variant="outline"
-      color={dark ? "yellow" : "blue"}
-      onClick={() => toggleColorScheme()}
-      title="Toggle color scheme"
-    >
-      {dark ? (
-        <SunHigh size={48} strokeWidth={2} color={"black"} />
-      ) : (
-        <Moon size={48} strokeWidth={2} color={"black"} />
-      )}
-    </ActionIcon>
+    <>
+      <ActionIcon
+        variant="outline"
+        color={dark ? "yellow" : "blue"}
+        onClick={() => toggleColorScheme()}
+        title="Toggle color scheme"
+      >
+        {dark ? (
+          <SunHigh size={48} strokeWidth={2} color={"yellow"} />
+        ) : (
+          <Moon size={48} strokeWidth={2} color={"black"} />
+        )}
+      </ActionIcon>
+    </>
   );
 };
 export default LightDarkButton;

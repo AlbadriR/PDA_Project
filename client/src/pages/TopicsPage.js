@@ -1,5 +1,6 @@
 import Topics from "../components/Topics/Topics";
-import { Text, Button, Flex, Space, Modal, Group } from "@mantine/core";
+import TopicForm from "../components/Topics/TopicForm";
+import { Text, Button, Flex, Space, Modal } from "@mantine/core";
 import { useState } from "react";
 const TopicsPage = () => {
   const [opened, setOpened] = useState(false);
@@ -8,9 +9,10 @@ const TopicsPage = () => {
       <Modal
         opened={opened}
         onClose={() => setOpened(false)}
-        title="Introduce yourself!"
+        title="Create a new topic !"
+        size="xl"
       >
-        {/* Modal content */}
+        <TopicForm />
       </Modal>
       <Flex
         mih={50}

@@ -1,10 +1,6 @@
 import Layout from "./components/Layout/Layout";
 
-import {
-  MantineProvider,
-  ColorSchemeProvider,
-  ColorScheme,
-} from "@mantine/core";
+import { MantineProvider, ColorSchemeProvider } from "@mantine/core";
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 
 function App() {

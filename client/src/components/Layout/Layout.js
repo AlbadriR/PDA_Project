@@ -9,15 +9,12 @@ import {
   Navbar,
   Header,
   Footer,
-  Aside,
   Text,
   MediaQuery,
   Burger,
   useMantineTheme,
-  Center,
 } from "@mantine/core";
 
-import { Link } from "react-router-dom";
 import LightDarkButton from "../Button/LightDarkButton";
 const Layout = (props) => {
   const theme = useMantineTheme();
@@ -47,7 +44,7 @@ const Layout = (props) => {
       }
       footer={
         <Footer height={60} p="md">
-          Application footer
+          <p>&copy;</p>
         </Footer>
       }
       header={
