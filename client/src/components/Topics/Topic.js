@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import classes from "./Topics.module.css";
+
 import TopicCard from "./TopicCard";
 const Topic = () => {
-  const [topic, setTopic] = useState([]);
+  const [topic, setTopic] = useState(null);
   const { id } = useParams();
   useEffect(() => {
     const fetchData = async () => {

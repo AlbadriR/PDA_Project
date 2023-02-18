@@ -16,6 +16,11 @@ export const updateTopic = async (req, res) => {
   res.send(topic);
 };
 
+/**
+ * yo
+ * @param {*} req
+ * @param {*} res
+ */
 export const deleteTopic = async (req, res) => {
   const topic = await TopicModel.findByIdAndDelete(req.params.id);
   if (!topic) {

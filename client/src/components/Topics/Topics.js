@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import classes from "./Topics.module.css";
 import TopicCard from "./TopicCard";
+import { Button } from "@mantine/core";
+import "./Topics.module.css";
 const Topics = () => {
   const [topics, setTopics] = useState([]);
 
@@ -19,11 +20,28 @@ const Topics = () => {
   }, []);
 
   return (
-    <div className={classes.Topic}>
-      {topics.map((topic) => (
-        <TopicCard key={topic._id} topic={topic}></TopicCard>
-      ))}
-    </div>
+    <table>
+      <tbody>
+        {topics.map((topic) => (
+          <tr key={topic._id}>
+            <td style={{ width: "100%" }}>
+              <TopicCard key={topic._id} topic={topic}></TopicCard>{" "}
+            </td>
+            <td>
+              <Button
+                key={topic._id}
+                radius="md"
+                size="lg"
+                compact
+                variant="light"
+              >
+                Join
+              </Button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

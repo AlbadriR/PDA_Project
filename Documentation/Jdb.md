@@ -32,29 +32,31 @@ Dans ce journal de bord vous trouverez mes differentes reflexions et les étapes
 
 ## 31 Janvier 2023
 
-** Objectif de la journée : **
+** Objectif de la journée : ** Finir les apis et affiché les topics sur le front-end
 
-** 8H30: **
+** 8H30: ** J'ai avancé sur l'API des topics, elle est presque finis
 
-** 10H55: **
+** 10H55: ** Je vais faire un peu de design
 
-** Bilan de la journée : **
+** Bilan de la journée : ** J'ai avancé sur l'API des topics, j'ai avancé sur le design
 
 ## 7 Février 2023
 
-** Objectif de la journée : **
+** Objectif de la journée : ** Faire le forumulaire de création de topic
 
-** 8H30: **
+** 8H30: ** J'ai fait sur le design
 
-** 10H55: **
+** 10H55: ** Je commence la doc, je terminerai le formulaire de création de topic plus tard
 
-** Bilan de la journée : **
+** Bilan de la journée : ** Aujaurd'hui j'ai commencé la doc et avancé le forumulaire.
 
-## 21 Février 2023
+## 14 Février 2023
 
-** Objectif de la journée : **
+** Objectif de la journée : ** Faire de la doc et avancé le projet
 
-** 8H30: **
+** 8H05: ** On doit effectuer une autoévaluation de mi trimestre que M.Zanardi nous a donner.
+
+** 9H00: ** J'ai terminé une partie de code que j'avais aps finis la semaine derniere et je commence la doc
 
 ** 10H55: **
 

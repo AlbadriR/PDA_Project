@@ -1,4 +1,4 @@
-import { Text, Accordion, createStyles, Button, Flex } from "@mantine/core";
+import { Text, Accordion, createStyles, Flex } from "@mantine/core";
 const TopicCard = ({ topic }) => {
   const useStyles = createStyles((theme) => ({
     wrapper: {
@@ -40,9 +40,6 @@ const TopicCard = ({ topic }) => {
             wrap="nowrap"
           >
             <Text>{topic.name}</Text>{" "}
-            <Button radius="md" size="lg" compact variant="light">
-              Join
-            </Button>
           </Flex>
         </Accordion.Control>
         <Accordion.Panel>
