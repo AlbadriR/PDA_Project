@@ -7,6 +7,7 @@ const port = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.json());
+app.use(express.static("client/build"));
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGODB);
 

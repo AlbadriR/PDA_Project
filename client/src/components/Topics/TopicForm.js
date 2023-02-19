@@ -4,14 +4,22 @@ import { Space, Button, TextInput, Textarea, Input, Code } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { DatePicker } from "@mantine/dates";
 import "./Topics.module.css";
-const TopicForm = () => {
+const TopicForm = ({ topic, id }) => {
+  const [topicValues, setTopicValues] = useState(null);
   const [submittedValues, setSubmittedValues] = useState("");
   // I have to set the error message here, because Mantine ui dosen't handle it for select inputs
   const [errorMessage, setErrorMessage] = useState("");
 
-  useEffect(() => {
-    setErrorMessage("");
-  }, [submittedValues]);
+  const dataBaseUpdate = async () => {
+    await window.fetch(`/api/topic/${id}`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+      body: JSON.stringify(submittedValues),
+    });
+  };
   const form = useForm({
     initialValues: {
       topicName: "",
@@ -20,6 +28,7 @@ const TopicForm = () => {
       favorable: "",
       public: "",
       type: "",
+      video: "",
       date: "",
     },
     validate: {
@@ -46,11 +55,25 @@ const TopicForm = () => {
       date: (value) => (value.length < 1 ? "Select a date" : null),
     },
   });
+
+  useEffect(() => {
+    setErrorMessage("");
+    setTopicValues(topic);
+
+    if (topicValues) {
+      form.setFieldValue("topicName", topicValues.name);
+    }
+    /*if (submittedValues) {
+      setTopic(submittedValues);
+    }*/
+  }, [submittedValues, topic, id, topicValues]);
+
   return (
     <form
-      onSubmit={form.onSubmit((values) =>
-        setSubmittedValues(JSON.stringify(values, null, 2))
-      )}
+      onSubmit={form.onSubmit((values) => {
+        setSubmittedValues(JSON.stringify(values, null, 2));
+        dataBaseUpdate();
+      })}
     >
       <table>
         <tbody>
@@ -187,7 +210,7 @@ const TopicForm = () => {
                 compact
                 variant="light"
               >
-                Create
+                {topic ? <p>Update</p> : <p>Create</p>}
               </Button>
             </td>
           </tr>
@@ -199,6 +222,9 @@ const TopicForm = () => {
         </p>
       )}
 
+      {submittedValues && (
+        <p style={{ color: "green" }}> Succesfully done ! </p>
+      )}
       {submittedValues && <Code block>{submittedValues}</Code>}
     </form>
   );

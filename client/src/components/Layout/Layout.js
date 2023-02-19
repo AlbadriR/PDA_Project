@@ -1,6 +1,6 @@
 import MainNavigation from "./MainNavigation";
 import { Route, Routes } from "react-router-dom";
-import MyTopics from "../../pages/MyTopics";
+import MyTopics from "../../pages/MyTopicsPage";
 import TopicsPage from "../../pages/TopicsPage";
 import About from "../../pages/About";
 import { useState } from "react";

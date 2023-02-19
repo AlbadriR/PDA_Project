@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import classes from "./Topics.module.css";
-
 import TopicCard from "./TopicCard";
+import TopicForm from "./TopicForm";
 const Topic = () => {
   const [topic, setTopic] = useState(null);
   const { id } = useParams();
@@ -22,8 +21,10 @@ const Topic = () => {
   }, [id]);
 
   return topic ? (
-    <div className={classes.Topic}>
+    <div>
       <TopicCard topic={topic}></TopicCard>
+      <h1>Edit</h1>
+      {topic && <TopicForm id={id} topic={topic} />}
     </div>
   ) : null;
 };
