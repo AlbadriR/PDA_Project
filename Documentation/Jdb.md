@@ -58,19 +58,19 @@ Dans ce journal de bord vous trouverez mes differentes reflexions et les étapes
 
 ** 9H00: ** J'ai terminé une partie de code que j'avais aps finis la semaine derniere et je commence la doc
 
-** 10H55: **
+** 11H30: ** J'ai avancé la documentation
 
-** Bilan de la journée : **
+** Bilan de la journée : ** La structure de la documentation est réaliser mais je n'est pas pu y mettre tout le contenue encore.
 
 ## 28 Février 2023
 
-** Objectif de la journée : **
+** Objectif de la journée : ** avancé la documentation et le projet
 
-** 8H30: **
+** 8H15: ** Je dois avancé la documentation car j'ai tout de meme pris un peu de retard
 
-** 10H55: **
+** 11H40: ** J'ai fait quelque shema sur figma, explqiué l'analyse de l'existant et avancé l'analyse fonctionnelle et organique.
 
-** Bilan de la journée : **
+** Bilan de la journée : ** Finalement j'ai uniquement avancé la documentation
 
 ## 7 Mars 2023
 
