@@ -16,13 +16,13 @@ const TopicForm = ({ topic, id }) => {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      method: "PUT",
-      body: JSON.stringify(submittedValues),
+      method: "PATCH",
+      body: submittedValues,
     });
   };
   const form = useForm({
     initialValues: {
-      topicName: "",
+      name: "",
       textArea: "",
       languages: "",
       favorable: "",
@@ -31,8 +31,8 @@ const TopicForm = ({ topic, id }) => {
       video: "",
       date: "",
     },
-    validate: {
-      topicName: (value) =>
+    /* validate: {
+      name: (value) =>
         value.length < 3 ? "Topic name is too short" : null,
       textArea: (value) => (value.length < 10 ? "Provide more detail" : null),
       languages: (value) =>
@@ -53,7 +53,7 @@ const TopicForm = ({ topic, id }) => {
         );
       },
       date: (value) => (value.length < 1 ? "Select a date" : null),
-    },
+    },*/
   });
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const TopicForm = ({ topic, id }) => {
     setTopicValues(topic);
 
     if (topicValues) {
-      form.setFieldValue("topicName", topicValues.name);
+      form.setFieldValue("name", topicValues.name);
     }
     /*if (submittedValues) {
       setTopic(submittedValues);
@@ -73,6 +73,7 @@ const TopicForm = ({ topic, id }) => {
       onSubmit={form.onSubmit((values) => {
         setSubmittedValues(JSON.stringify(values, null, 2));
         dataBaseUpdate();
+        console.log("OH", submittedValues);
       })}
     >
       <table>
@@ -82,11 +83,11 @@ const TopicForm = ({ topic, id }) => {
             <td>
               <TextInput
                 placeholder="Topic name"
-                value={form.values.topicName}
+                value={form.values.name}
                 /*onChange={(event) =>
-                  form.setFieldValue("topicName", event.currentTarget.value)
+                  form.setFieldValue("name", event.currentTarget.value)
                 }*/
-                {...form.getInputProps("topicName")}
+                {...form.getInputProps("name")}
               />
             </td>
           </tr>

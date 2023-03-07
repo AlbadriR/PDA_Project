@@ -11,6 +11,12 @@ const Topics = () => {
     navigate(`/mytopics/${id}`);
   };
 
+  const handleDelete = async (id) => {
+    await fetch(`/api/topic/${id}`, {
+      method: "DELETE",
+    });
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetch("/api/topics");
@@ -23,7 +29,7 @@ const Topics = () => {
       setTopics(json);
     };
     fetchData();
-  }, []);
+  }, [handleDelete]);
 
   return (
     <table>
@@ -31,11 +37,11 @@ const Topics = () => {
         {topics.map((topic) => (
           <tr key={topic._id}>
             <td style={{ width: "100%" }}>
-              <TopicCard key={topic._id} topic={topic}></TopicCard>{" "}
+              <TopicCard key={topic._id} topic={topic}></TopicCard>
             </td>
             <td>
               <Button
-                key={topic._id}
+                key={`edit ${topic._id}`}
                 radius="md"
                 size="lg"
                 compact
@@ -43,6 +49,16 @@ const Topics = () => {
                 onClick={() => handleClick(topic._id)}
               >
                 Edit
+              </Button>
+              <Button
+                key={`delete ${topic._id}`}
+                radius="md"
+                size="lg"
+                compact
+                variant="light"
+                onClick={() => handleDelete(topic._id)}
+              >
+                Delete
               </Button>
             </td>
           </tr>

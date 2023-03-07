@@ -25,7 +25,7 @@ const Topics = () => {
         {topics.map((topic) => (
           <tr key={topic._id}>
             <td style={{ width: "100%" }}>
-              <TopicCard key={topic._id} topic={topic}></TopicCard>{" "}
+              <TopicCard key={topic._id} topic={topic}></TopicCard>
             </td>
             <td>
               <Button
