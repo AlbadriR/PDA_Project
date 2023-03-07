@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import TopicCard from "./TopicCard";
-import { Button } from "@mantine/core";
+import { Text, Button, Flex, Space, Modal } from "@mantine/core";
+import TopicForm from "./TopicForm";
 import "./Topics.module.css";
 const Topics = () => {
   const navigate = useNavigate();
+  const [opened, setOpened] = useState(false);
   const [topics, setTopics] = useState([]);
 
-  const handleClick = (id) => {
+  const handleEdit = (id) => {
     navigate(`/mytopics/${id}`);
   };
 
@@ -33,6 +35,34 @@ const Topics = () => {
 
   return (
     <table>
+      <Modal
+        opened={opened}
+        onClose={() => setOpened(false)}
+        title="Create a new topic !"
+        size="xl"
+      >
+        <TopicForm />
+      </Modal>
+      <Flex
+        mih={50}
+        gap="md"
+        justify="space-between"
+        align="center"
+        direction="row"
+        wrap="wrap"
+      >
+        <Text>Liste des débats :</Text>
+        <Button
+          onClick={() => setOpened(true)}
+          radius="md"
+          size="lg"
+          compact
+          variant="light"
+        >
+          <Text>Create +</Text>
+        </Button>
+      </Flex>
+      <Space h="xl" />
       <tbody>
         {topics.map((topic) => (
           <tr key={topic._id}>
@@ -46,7 +76,7 @@ const Topics = () => {
                 size="lg"
                 compact
                 variant="light"
-                onClick={() => handleClick(topic._id)}
+                onClick={() => handleEdit(topic._id)}
               >
                 Edit
               </Button>

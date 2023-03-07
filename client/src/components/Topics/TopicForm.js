@@ -20,6 +20,18 @@ const TopicForm = ({ topic, id }) => {
       body: submittedValues,
     });
   };
+
+  const dataBaseCreate = async () => {
+    await window.fetch(`/api/topic`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: submittedValues,
+    });
+  };
+
   const form = useForm({
     initialValues: {
       name: "",
@@ -31,9 +43,8 @@ const TopicForm = ({ topic, id }) => {
       video: "",
       date: "",
     },
-    /* validate: {
-      name: (value) =>
-        value.length < 3 ? "Topic name is too short" : null,
+    validate: {
+      name: (value) => (value.length < 3 ? "Topic name is too short" : null),
       textArea: (value) => (value.length < 10 ? "Provide more detail" : null),
       languages: (value) =>
         value.length < 1 ? setErrorMessage(" a language") : null,
@@ -53,7 +64,7 @@ const TopicForm = ({ topic, id }) => {
         );
       },
       date: (value) => (value.length < 1 ? "Select a date" : null),
-    },*/
+    },
   });
 
   useEffect(() => {
@@ -68,12 +79,15 @@ const TopicForm = ({ topic, id }) => {
     }*/
   }, [submittedValues, topic, id, topicValues]);
 
+  useEffect(() => {
+    if (submittedValues) {
+      id ? dataBaseUpdate() : dataBaseCreate();
+    }
+  }, [submittedValues]);
   return (
     <form
       onSubmit={form.onSubmit((values) => {
         setSubmittedValues(JSON.stringify(values, null, 2));
-        dataBaseUpdate();
-        console.log("OH", submittedValues);
       })}
     >
       <table>

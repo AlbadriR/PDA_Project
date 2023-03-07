@@ -39,7 +39,7 @@ const TopicCard = ({ topic }) => {
             direction="row"
             wrap="nowrap"
           >
-            <Text>{topic.name}</Text>{" "}
+            <Text>{topic.name}</Text>
           </Flex>
         </Accordion.Control>
         <Accordion.Panel>
